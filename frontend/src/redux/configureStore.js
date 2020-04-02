@@ -1,16 +1,19 @@
 import { createStore, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
+import { logger } from 'redux-logger';
 import { productsReducer } from './Reducers.js';
 import { isProduction } from '../shared/environment.js';
 
 export const ConfigureStore = () => {
-    const store = createStore(
-        productsReducer,
-        applyMiddleware(thunk)
-    );
+    let middlewares = [thunk];
 
     if (!isProduction)
-        store.subscribe(() => console.log(store.getState()));
+        middlewares.push(logger);
+
+    const store = createStore(
+        productsReducer,
+        applyMiddleware(...middlewares)
+    );
 
     return store;
 };
