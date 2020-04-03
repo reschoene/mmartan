@@ -1,0 +1,40 @@
+.navbar{
+  display: block;
+}
+
+/* SearchComponent - Inicio */
+.searchContainer{
+  border-width: 1px;
+  border-style: solid;
+  border-color: #d5d5d5;
+  border-radius: 25px;
+}
+
+.searchBtn{
+  cursor: pointer;
+}
+
+.icon-cancel{
+  color: #959393;
+  font-size: 14px;
+}
+
+.icon-search{
+  color: #b9b8b8;
+  font-size: 12px;
+}
+
+.searchInputBox::placeholder{
+  color: #9f9fa0;
+}
+
+.searchInputBox{
+   border: none;
+   color: #9f9fa0;
+}
+
+.searchInputBox:focus{
+  outline:none;
+}
+
+/* SearchComponent - Fim */

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Header from './HeaderComponent';
+import TopBar from './TopBarComponent';
 import Footer from './FooterComponent';
 import ProductCatalog from './ProductCatalogComponent';
 import { connect } from 'react-redux';
@@ -23,7 +23,7 @@ class Main extends Component{
   render(){
     return(
       <div>
-        <Header />
+        <TopBar />
         <ProductCatalog />
         <Footer />
       </div>
