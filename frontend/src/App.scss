@@ -26,11 +26,14 @@
 
 .searchInputBox::placeholder{
   color: #9f9fa0;
+  font-size: 14px;
 }
 
 .searchInputBox{
    border: none;
    color: #9f9fa0;
+   font-size: 14px;
+   height: 30px;
 }
 
 .searchInputBox:focus{
