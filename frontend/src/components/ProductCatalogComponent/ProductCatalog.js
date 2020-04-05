@@ -50,13 +50,8 @@ class ProductCatalog extends Component{
                 );
             });
 
-            return (
-                <>
-                    <div className="foundProducts">200 PRODUTOS ENCONTRADOS</div>
-                    <div className="catalogItems">
-                        {items}               
-                    </div>
-                </>                                                                                                                                                                                                       
+            return (                    
+                <div className="catalogItems">{items}</div>                                                                                                                                                                                                      
             )
         }
     }        

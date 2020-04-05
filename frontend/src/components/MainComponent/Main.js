@@ -4,7 +4,8 @@ import Tittle from '../TittleComponent/Tittle';
 import ProductCatalog from '../ProductCatalogComponent/ProductCatalog';
 import { connect } from 'react-redux';
 import { fetchProducts } from '../../redux/ActionCreators';
-import Pagination from '../PaginationComponent/Pagination';
+import PaginationBar from '../PaginationBarComponent/PaginationBar';
+import Subtittle from '../SubtittleComponent/Subtittle';
 
 const mapStateToProps = state => {
   return {
@@ -26,8 +27,9 @@ class Main extends Component{
       <>
         <TopBar />
         <Tittle value="Lençol avulso"/>
+        <Subtittle value="200 PRODUTOS ENCONTRADOS"/>        
         <ProductCatalog products={this.props.products}/>
-        <Pagination />
+        <PaginationBar />
       </>
     );
   }
