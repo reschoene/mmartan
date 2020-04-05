@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { Navbar, NavbarBrand } from 'reactstrap';
-import Search from './SearchComponent';
+import Search from '../SearchComponent/Search';
+import './TopBar.scss'
 
 class TopBar extends Component{
     render(){

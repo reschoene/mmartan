@@ -1,0 +1,16 @@
+$title-border: solid 2px #D7D6DA;
+
+.tittle-container{
+  margin-top: 109px;
+  height: 95px;
+  display: flex;
+  align-items: center;
+  padding: 12px 0px 0px 24px;
+  margin: 60px 0px 0px 0px;
+  font-size: 37px;
+  background-color: #eeedf1;
+  color: #6F6B8A;
+  border-top: $title-border;
+  border-bottom: $title-border;
+  font-weight: 300;
+}

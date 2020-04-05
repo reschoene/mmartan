@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
-import TopBar from './TopBarComponent';
-import ProductCatalog from './ProductCatalogComponent';
+import TopBar from '../TopBarComponent/TopBar';
+import Tittle from '../TittleComponent/Tittle';
+import ProductCatalog from '../ProductCatalogComponent/ProductCatalog';
 import { connect } from 'react-redux';
-import { fetchProducts } from '../redux/ActionCreators';
-import Pagination from './PaginationComponent';
+import { fetchProducts } from '../../redux/ActionCreators';
+import Pagination from '../PaginationComponent/Pagination';
 
 const mapStateToProps = state => {
   return {
@@ -22,11 +23,12 @@ class Main extends Component{
 
   render(){
     return(
-      <div>
+      <>
         <TopBar />
+        <Tittle value="teste"/>
         <ProductCatalog products={this.props.products}/>
         <Pagination />
-      </div>
+      </>
     );
   }
 }

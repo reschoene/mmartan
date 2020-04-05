@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import formatCurreny from '../shared/format';
+import './ProductCatalog.scss';
+import formatCurreny from '../../shared/format';
 
 function ProductCatalogItem({productItem}){
     if (productItem === null) {

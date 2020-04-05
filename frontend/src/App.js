@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './App.scss';
-import Main from './components/MainComponent';
+import Main from './components/MainComponent/Main';
 import { Provider } from 'react-redux';
 import { ConfigureStore } from './redux/configureStore';
 
