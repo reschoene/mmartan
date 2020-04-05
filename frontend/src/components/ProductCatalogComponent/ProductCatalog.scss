@@ -1,7 +1,16 @@
 $light-color: #828486;
 
 .catalogItems{
-    margin: 50px 170px 0px 170px;
+    margin: 30px 170px 0px 170px;
+}
+
+.foundProducts{
+    display: inline-block;
+    margin: 30px 0px 0px 170px;
+    border-bottom: solid 3px #DFBE7F;
+    padding-bottom: 3px;
+    color: $light-color;
+    font-size: 13px;
 }
 
 .prod-title{

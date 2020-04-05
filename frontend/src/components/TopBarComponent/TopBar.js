@@ -8,12 +8,12 @@ class TopBar extends Component{
         return (
             <Navbar color="white" fixed="top">
                 <div className="row align-items-center">
-                    <div className="col-7">
+                    <div className="col-8">
                         <NavbarBrand>
                             <img src="./images/logo.png" alt="Logo"/>
                         </NavbarBrand>
                     </div>
-                    <div className="col-5">
+                    <div className="col-4">
                         <Search onSearch={(value) => alert('Valor busca: ' + value)}/>
                     </div>                    
                 </div>

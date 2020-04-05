@@ -25,7 +25,7 @@ class Main extends Component{
     return(
       <>
         <TopBar />
-        <Tittle value="teste"/>
+        <Tittle value="Lençol avulso"/>
         <ProductCatalog products={this.props.products}/>
         <Pagination />
       </>

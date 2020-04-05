@@ -52,7 +52,7 @@ class ProductCatalog extends Component{
 
             return (
                 <>
-                    <div className="mt-3 row">200 PRODUTOS ENCONTRADOS</div>
+                    <div className="foundProducts">200 PRODUTOS ENCONTRADOS</div>
                     <div className="catalogItems">
                         {items}               
                     </div>
