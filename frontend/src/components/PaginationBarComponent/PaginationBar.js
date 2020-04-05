@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import Pagination from "react-js-pagination";
 import './PaginationBar.scss';
-import "bootstrap/dist/css/bootstrap.min.css";
 
 class PaginationBar extends Component{
     constructor(props) {
