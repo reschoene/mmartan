@@ -1,3 +1,7 @@
+body{
+  overflow-x: hidden;
+}
+
 .navbar{
   display: block;
 }
@@ -41,3 +45,41 @@
 }
 
 /* SearchComponent - Fim */
+
+/* ProductCatalog - Inicio */
+
+.catalogItems{
+  margin: 50px 170px 0px 170px;
+}
+
+.prod-title{
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.prod-subtitle{
+  font-size: 12px;
+  color: #828486;
+}
+
+.prod-price{
+  text-align: end;
+  margin-top: 30px;
+  margin-left: 10px;
+  padding-right: 0px;
+}
+
+.prod-reg-price{
+  font-size: 14px;
+  color: #828486;
+  font-weight: 400;
+  text-decoration-line: line-through;
+  margin-right: 3px;
+}
+
+.prod-price-sep{
+  @extend .prod-reg-price;
+  text-decoration-line: initial;
+}  
+
+/* ProductCatalog - Fim */

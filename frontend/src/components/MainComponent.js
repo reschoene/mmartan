@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import TopBar from './TopBarComponent';
-import Footer from './FooterComponent';
 import ProductCatalog from './ProductCatalogComponent';
 import { connect } from 'react-redux';
 import { fetchProducts } from '../redux/ActionCreators';
+import Pagination from './PaginationComponent';
 
 const mapStateToProps = state => {
   return {
@@ -24,8 +24,8 @@ class Main extends Component{
     return(
       <div>
         <TopBar />
-        <ProductCatalog />
-        <Footer />
+        <ProductCatalog products={this.props.products}/>
+        <Pagination />
       </div>
     );
   }

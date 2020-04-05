@@ -9,7 +9,7 @@ class TopBar extends Component{
                 <div className="row align-items-center">
                     <div className="col-7">
                         <NavbarBrand>
-                            <img src="./images/logo.png" />
+                            <img src="./images/logo.png" alt="Logo"/>
                         </NavbarBrand>
                     </div>
                     <div className="col-5">
