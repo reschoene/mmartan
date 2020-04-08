@@ -7,13 +7,11 @@ function ProductCatalogItem({productItem}){
         return <div></div>;
     }
 
-    const photos = productItem.photos.map(function(photo, idx){
-        return(
-            <div key={idx} className="col-3">
-                <img src={'./images/products/' + photo} alt={photo} height='85px' width='85px'/>
-            </div>
-        );
-    });
+    const photos = productItem.photos.map((photo, idx) =>
+        <div key={idx} className="col-3">
+            <img src={'./images/products/' + photo} alt={photo} height='85px' width='85px'/>
+        </div>
+    );
 
     return (
         <div className="container border">
@@ -44,11 +42,9 @@ class ProductCatalog extends Component{
         if (!this.props.products){
             return (<div></div>);
         }else{
-            const items = this.props.products.map(function(product){
-                return (
-                    <ProductCatalogItem key={product.id} productItem={product} />
-                );
-            });
+            const items = this.props.products.map((product) =>
+                <ProductCatalogItem key={product.id} productItem={product} />
+            );
 
             return (                    
                 <div className="catalogItems">{items}</div>                                                                                                                                                                                                      

@@ -1,3 +1,63 @@
+$border-color: #DFDFDF;
+$font-color: #828486;
+$disabled-font-color: #EBEAEE;
+$font-size: 14px;
+
 .pagination-bar{
-    margin: 30px 0px 0px 170px;
+    margin: 30px 160px 0px 170px;
+    font-size: $font-size;
+}
+
+.page-item.active .page-link{
+    border: 2px solid $border-color;
+    border-radius: 5px;
+    background-color: white;
+    color: $font-color;
+}
+
+.page-item, .page-link:hover{
+    color: $font-color;
+}
+
+.page-link{
+    color: $font-color;
+    border: none;
+    line-height: 1;
+}
+
+.page-link:focus{
+    box-shadow: unset;
+}
+
+.page-item.disabled .page-link{  
+    color: $disabled-font-color;
+}
+
+.dropdown-page-size{
+    background-color: white;
+    border-color: $border-color;
+    color: $font-color;
+    font-size: $font-size;
+}
+
+.dropdown-page-size:hover{
+    color: $font-color;
+}
+
+.dropdown-page-size:focus{
+    outline: unset;
+    box-shadow: unset;
+}
+
+.dropdown-page-size-items,
+.dropdown-page-size-items:hover{
+    color: $font-color;
+    background-color: white;
+    border-color: white;
+    outline-color: white;
+    font-size: $font-size;
+}
+
+.dropdown-page-size i{
+    color: $border-color;
 }
