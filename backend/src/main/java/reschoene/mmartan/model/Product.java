@@ -3,15 +3,17 @@ package reschoene.mmartan.model;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Product {
-    Long id;
-    String name;
+public class Product extends BaseModel{
     String description;
     Line line;
     Size size;
-    List<String> photos = new LinkedList<String>();
+    List<Photo> photos = new LinkedList<Photo>();
     double regularPrice;
-    double salePrice;
+    double salePrice;    
+    
+    public Product(Long pId, String pName) {
+        super(pId, pName);
+    }
     
     public double getRegularPrice() {
         return regularPrice;
@@ -24,18 +26,6 @@ public class Product {
     }
     public void setSalePrice(double salePrice) {
         this.salePrice = salePrice;
-    }
-    public Long getId() {
-        return id;
-    }
-    public void setId(Long id) {
-        this.id = id;
-    }
-    public String getName() {
-        return name;
-    }
-    public void setName(String name) {
-        this.name = name;
     }
     public String getDescription() {
         return description;
@@ -55,10 +45,10 @@ public class Product {
     public void setSize(Size size) {
         this.size = size;
     }
-    public List<String> getPhotos() {
+    public List<Photo> getPhotos() {
         return photos;
     }
-    public void setPhotos(List<String> photos) {
+    public void setPhotos(List<Photo> photos) {
         this.photos = photos;
     }
 }

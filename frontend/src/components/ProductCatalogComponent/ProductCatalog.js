@@ -9,7 +9,7 @@ function ProductCatalogItem({productItem}){
 
     const photos = productItem.photos.map((photo, idx) =>
         <div key={idx} className="col-12 col-md-6 col-lg-3">
-            <img src={'./images/products/' + photo} alt={photo} height='85px' width='85px'/>
+            <img src={'./images/products/' + photo.path} alt={photo.name} height='85px' width='85px'/>
         </div>
     );
 
