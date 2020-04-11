@@ -23,7 +23,7 @@ function ProductCatalogItem({productItem}){
                 </div>
                 <div className="col-5 row align-items-center">
                     <div>
-                        <div className="ml-5 row prod-title">{productItem.description}</div>
+                        <div className="ml-5 row prod-title">{productItem.name}</div>
                         <div className="ml-5 row prod-subtitle">{productItem.line.name} - {productItem.size.name}</div>
                     </div>
                 </div>

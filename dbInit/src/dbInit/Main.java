@@ -6,6 +6,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Random;
 
 public class Main {
@@ -23,7 +26,7 @@ public class Main {
     public static Random rand = new Random();
         
     //generation control
-    public static final int PRODUCTS_TO_GENERATE = 200;
+    public static final int PRODUCTS_TO_GENERATE = 2000;
     
     public static final int PHOTOS_COUNT = 7;
     
@@ -199,10 +202,15 @@ public class Main {
         
         PreparedStatement psInsert = pConn.prepareStatement(SQL_INSERT);
         
+        List<Integer> lsPhotoIds = new ArrayList<Integer>();
+        for (int i=1; i<=PHOTOS_COUNT; i++)
+            lsPhotoIds.add(i);
+        Collections.shuffle(lsPhotoIds); //randomize ids
+        
         for (int i=1; i<=4; i++) {
             psInsert.setInt(1, pProdXPhotoId++);
             psInsert.setInt(2, pProductId);
-            psInsert.setInt(3, getRandId(PHOTOS_COUNT));
+            psInsert.setInt(3, lsPhotoIds.get(i));
             psInsert.execute();
         }        
         
@@ -236,6 +244,10 @@ public class Main {
             fator = 1;
         
         price *= Math.pow(10, fator);
+        
+        //apenas para nao ter precos muito baixos (ficar mais real)
+        if (price < 10)
+            price *= 3;
         
         return truncatePrice(price);
     }

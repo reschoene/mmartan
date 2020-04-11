@@ -4,7 +4,7 @@ import { getBaseUrl } from '../shared/baseUrl';
 export const fetchProducts = () => (dispatch) => {
     dispatch(productsLoading(true));
 
-    return fetch(getBaseUrl()+'getProductCatalog')
+    return fetch(getBaseUrl()+'getProductCatalog?pageNumber=10&pageSize=10')
         .then(response => {
             if(response.ok){
                 return response;
