@@ -175,14 +175,9 @@ public class Main {
         for (int i=1; i<=PRODUCTS_TO_GENERATE; i++) {
             String prodName = getRandUniqueProdName(i);
             
-            double lowerPrice = getRandPrice();
-            double higherPrice = getRandPrice();
             
-            if (lowerPrice > higherPrice) {
-                double tmp = lowerPrice;
-                lowerPrice = higherPrice;
-                higherPrice = tmp;
-            }
+            double higherPrice = getRandPrice();
+            double lowerPrice = calcSalePrice(higherPrice);           
                             
             psInsert.setInt(1, i);
             psInsert.setInt(2, getRandId(insertedLines));
@@ -243,6 +238,13 @@ public class Main {
         price *= Math.pow(10, fator);
         
         return truncatePrice(price);
+    }
+    
+    private static double calcSalePrice(double pPrice) {
+        //Calcula e retorna o preco com um desconto aleatorio entre 10 e 50 porcento
+        double offPercent = rand.nextInt(5) + 1; //return integer between 1 and 5
+        offPercent = 1 - (offPercent / 10);
+        return truncatePrice(pPrice * offPercent);
     }
     
     private static double truncatePrice(double pPrice) {
