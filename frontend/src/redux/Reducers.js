@@ -6,7 +6,8 @@ export const productsReducer = (state = {
         searchFilter: '',
         isLoading: true,
         errMsg: null,
-        products: []
+        products: [],
+        totalProducts: 0
     }, action) => {
     switch(action.type){
         case ActionTypes.ADD_PRODUCTS:
@@ -19,8 +20,10 @@ export const productsReducer = (state = {
             return {...state, pageSize: action.payload};
         case ActionTypes.SET_PAGE_NUMBER:
             return {...state, pageNumber: action.payload};
-            case ActionTypes.SET_SEARCH_FILTER:
-                return {...state, searchFilter: action.payload};
+        case ActionTypes.SET_SEARCH_FILTER:
+            return {...state, searchFilter: action.payload};
+        case ActionTypes.SET_TOTAL_PRODUCTS:
+            return {...state, totalProducts: action.payload};
         default: 
             return state;
     }

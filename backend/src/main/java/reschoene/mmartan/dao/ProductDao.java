@@ -11,13 +11,25 @@ import reschoene.mmartan.jdbc.JdbcConnectionFactory;
 import reschoene.mmartan.model.Line;
 import reschoene.mmartan.model.Photo;
 import reschoene.mmartan.model.Product;
+import reschoene.mmartan.model.ProductCatalog;
 import reschoene.mmartan.model.Size;
 
 public class ProductDao {
-    public List<Product> getProductCatalog(int pPageNumber, int pPageSize, String pProdDescription) throws ClassNotFoundException, SQLException{
-        List<Product> productCatalog = new LinkedList<Product>();
+    public ProductCatalog getProductCatalog(int pPageNumber, int pPageSize, String pProdDescription) throws ClassNotFoundException, SQLException{
+        ProductCatalog productCatalog = new ProductCatalog();
         
         Connection conn = JdbcConnectionFactory.getConnection();
+        
+        //qtde independente de paginacao
+        final String sqlCount = 
+            " SELECT Count(id) totalProducts FROM Products " +
+            " WHERE description like ? ";
+        
+        PreparedStatement pstCount = conn.prepareStatement(sqlCount);
+        pstCount.setString(1, "%" + pProdDescription + "%");
+        ResultSet rsCount = pstCount.executeQuery();
+        if (rsCount.next())
+            productCatalog.setTotalProducts(rsCount.getInt("totalProducts"));
         
         final String sql = 
             " SELECT p.id AS prodId, l.id AS lineId, l.name AS lineName, s.id AS sizeId, s.name AS sizeName, " + 
@@ -47,7 +59,7 @@ public class ProductDao {
         while (rs.next()) {
             if (prodId != rs.getLong("prodId")) {
                 p = new Product(rs.getLong("prodId"), rs.getString("prodName"));
-                productCatalog.add(p);
+                productCatalog.getProducts().add(p);
                                 
                 p.setDescription(rs.getString("prodDesc"));
                 p.setLine(new Line(rs.getLong("lineId"), rs.getString("lineName")));

@@ -12,7 +12,8 @@ const mapStateToProps = state => {
     products: state.products,
     pageSize: state.pageSize,
     pageNumber: state.pageNumber,
-    searchFilter: state.searchFilter
+    searchFilter: state.searchFilter,
+    totalProducts: state.totalProducts
   }   
 }
 
@@ -26,7 +27,7 @@ class Main extends Component{
   }
 
   render(){
-    let foundProducts = `${this.props.products.length} PRODUTOS ENCONTRADOS`;
+    let foundProducts = `${this.props.totalProducts} PRODUTOS ENCONTRADOS`;
     let currentSearch = (this.props.searchFilter? this.props.searchFilter: "Lista de produtos");
 
     return(

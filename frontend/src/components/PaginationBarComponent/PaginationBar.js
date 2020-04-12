@@ -9,7 +9,8 @@ const mapStateToProps = state => {
     return {
       pageNumber: state.pageNumber,
       pageSize: state.pageSize,
-      searchFilter: state.searchFilter
+      searchFilter: state.searchFilter,
+      totalProducts: state.totalProducts
     }
 }
 
@@ -43,7 +44,7 @@ class PaginationBar extends Component{
     }
 
     render(){
-        const pageSizeItems = [16, 32, 64, 128, 256, 512].map((pageSize, idx) =>
+        const pageSizeItems = [16, 30, 50, 75, 100].map((pageSize, idx) =>
             <DropdownItem key={idx} value={pageSize} onClick={(e) => this.pageSizeChange(parseInt(e.target.value))} className="dropdown-page-size-items">
                 {`${pageSize} produtos por página`}
             </DropdownItem>
@@ -71,7 +72,7 @@ class PaginationBar extends Component{
                     activePage={this.props.pageNumber}
                     onChange={(pageNumber) => this.pageNumberChange(pageNumber)}
                     itemsCountPerPage={this.props.pageSize}
-                    totalItemsCount={450}
+                    totalItemsCount={this.props.totalProducts}
                     pageRangeDisplayed={5}
                 />
             </div>

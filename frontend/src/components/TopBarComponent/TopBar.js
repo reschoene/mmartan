@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { Navbar, NavbarBrand } from 'reactstrap';
 import Search from '../SearchComponent/Search';
 import { connect } from 'react-redux';
-import { fetchProducts, setSearchFilter } from '../../redux/ActionCreators';
+import { fetchProducts, setSearchFilter, setPageNumber} from '../../redux/ActionCreators';
 import './TopBar.scss'
 
 const mapStateToProps = state => {
@@ -15,13 +15,15 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => ({
     fetchProducts:   (pageNumber, pageSize, prodDescr) => dispatch(fetchProducts(pageNumber, pageSize, prodDescr)),
-    setSearchFilter: (searchFilter)                    => dispatch(setSearchFilter(searchFilter))
+    setSearchFilter: (searchFilter)                    => dispatch(setSearchFilter(searchFilter)),
+    setPageNumber:   (pageNumber)                      => dispatch(setPageNumber(pageNumber)),
 });
 
 class TopBar extends Component{
     doSearch(searchFilter){
         this.props.setSearchFilter(searchFilter);
-        this.props.fetchProducts(this.props.pageNumber, this.props.pageSize, searchFilter);
+        this.props.setPageNumber(1); //ao mudar o termo da busca, volta a pagina 1
+        this.props.fetchProducts(1, this.props.pageSize, searchFilter);
     }
 
     render(){

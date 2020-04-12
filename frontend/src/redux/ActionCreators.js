@@ -20,7 +20,10 @@ export const fetchProducts = (pageNumber, pageSize, prodDescr) => (dispatch) => 
             throw errmess;
         })
         .then(response => response.json())
-        .then(products => dispatch(addProducts(products)))
+        .then(prodCatalog => {
+            dispatch(setTotalProducts(prodCatalog.totalProducts));
+            dispatch(addProducts(prodCatalog.products));
+        })
         .catch(error => dispatch(productsFailed(error.message)));
 }
 
@@ -52,3 +55,8 @@ export const setSearchFilter = (searchFilter) => ({
     type: ActionTypes.SET_SEARCH_FILTER,
     payload: searchFilter
 });
+
+export const setTotalProducts = (totalProducts) => ({
+    type: ActionTypes.SET_TOTAL_PRODUCTS,
+    payload: totalProducts
+})
