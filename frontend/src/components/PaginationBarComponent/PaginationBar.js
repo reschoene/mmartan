@@ -1,30 +1,45 @@
 import React, {Component} from 'react';
 import Pagination from "react-js-pagination";
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+import { connect } from 'react-redux';
+import { fetchProducts, setPageNumber,setPageSize } from '../../redux/ActionCreators';
 import './PaginationBar.scss';
+
+const mapStateToProps = state => {
+    return {
+      pageNumber: state.pageNumber,
+      pageSize: state.pageSize,
+      searchFilter: state.searchFilter
+    }
+}
+
+const mapDispatchToProps = dispatch => ({
+    fetchProducts: (pageNumber, pageSize, prodDescr) => dispatch(fetchProducts(pageNumber, pageSize, prodDescr)),
+    setPageNumber: (pageNumber)                      => dispatch(setPageNumber(pageNumber)),
+    setPageSize:   (pageSize)                        => dispatch(setPageSize(pageSize)),
+});
 
 class PaginationBar extends Component{
     constructor(props) {
         super(props);
         this.state = {
-            pageNumber: 1,
-            pageSize: 16,
             pageSizeDropOpened: false
         };
     }
 
-    handlePageClick(pageNumber){
-        this.setState({...this.state, pageNumber});
+    pageNumberChange(pageNumber){
+        this.props.setPageNumber(pageNumber);
+        this.props.fetchProducts(pageNumber, this.props.pageSize, this.props.searchFilter);
     }
 
     pageSizeChange(pageSize){
-        //Change pageSize and set pageSizeDrodDown as closed
-        this.setState({...this.state, pageSize, pageSizeDropOpened: false});
+        this.props.setPageSize(pageSize);
+        this.props.setPageNumber(1);
+        this.props.fetchProducts(1, pageSize, this.props.searchFilter);
     }
 
-    openPageSizeDropDown(){
-        if (!this.state.pageSizeDropOpened)
-            this.setState({...this.state, pageSizeDropOpened: true});
+    togglePageSizeDropDown(){
+        this.setState({pageSizeDropOpened: !this.state.pageSizeDropOpened});
     }
 
     render(){
@@ -36,9 +51,9 @@ class PaginationBar extends Component{
 
         return (
             <div className="pagination-bar d-flex justify-content-between">
-                <Dropdown isOpen={this.state.pageSizeDropOpened} toggle={() => this.openPageSizeDropDown()}>
+                <Dropdown isOpen={this.state.pageSizeDropOpened} toggle={() => this.togglePageSizeDropDown()}>
                     <DropdownToggle className="dropdown-page-size" color="white">
-                        {`${this.state.pageSize} produtos por página`}
+                        {`${this.props.pageSize} produtos por página`}
                         <i className="ml-3 fa fa-chevron-down" aria-hidden="true"></i>
                     </DropdownToggle>
                     <DropdownMenu>
@@ -53,9 +68,9 @@ class PaginationBar extends Component{
                     lastPageText ={<i className='fa fa-step-forward' />}
                     itemClass="page-item"
                     linkClass="page-link"
-                    activePage={this.state.pageNumber}
-                    onChange={(pageNumber) => this.handlePageClick(pageNumber)}
-                    itemsCountPerPage={this.state.pageSize}
+                    activePage={this.props.pageNumber}
+                    onChange={(pageNumber) => this.pageNumberChange(pageNumber)}
+                    itemsCountPerPage={this.props.pageSize}
                     totalItemsCount={450}
                     pageRangeDisplayed={5}
                 />
@@ -64,4 +79,4 @@ class PaginationBar extends Component{
     }        
 }
 
-export default PaginationBar;
+export default connect(mapStateToProps, mapDispatchToProps)(PaginationBar);

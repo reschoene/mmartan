@@ -34,6 +34,9 @@ class Search extends Component{
 
     clearBtnClick = (e) =>{ 
         this.setState({value: ''});
+        
+        if (this.props.onSearch)
+            this.props.onSearch('');        
     }
     
     searchBtnClick = (e) =>{

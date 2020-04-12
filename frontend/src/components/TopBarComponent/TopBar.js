@@ -1,9 +1,29 @@
 import React, {Component} from 'react';
 import { Navbar, NavbarBrand } from 'reactstrap';
 import Search from '../SearchComponent/Search';
+import { connect } from 'react-redux';
+import { fetchProducts, setSearchFilter } from '../../redux/ActionCreators';
 import './TopBar.scss'
 
+const mapStateToProps = state => {
+    return {
+      pageNumber: state.pageNumber,
+      pageSize: state.pageSize,
+      searchFilter: state.searchFilter
+    }
+}
+
+const mapDispatchToProps = dispatch => ({
+    fetchProducts:   (pageNumber, pageSize, prodDescr) => dispatch(fetchProducts(pageNumber, pageSize, prodDescr)),
+    setSearchFilter: (searchFilter)                    => dispatch(setSearchFilter(searchFilter))
+});
+
 class TopBar extends Component{
+    doSearch(searchFilter){
+        this.props.setSearchFilter(searchFilter);
+        this.props.fetchProducts(this.props.pageNumber, this.props.pageSize, searchFilter);
+    }
+
     render(){
         return (
             <Navbar color="white" fixed="top">
@@ -14,7 +34,7 @@ class TopBar extends Component{
                         </NavbarBrand>
                     </div>
                     <div className="col-4">
-                        <Search onSearch={(value) => alert('Valor busca: ' + value)}/>
+                        <Search onSearch={(value) => this.doSearch(value)}/>
                     </div>                    
                 </div>
             </Navbar>
@@ -22,4 +42,4 @@ class TopBar extends Component{
     }        
 }
 
-export default TopBar;
+export default connect(mapStateToProps, mapDispatchToProps)(TopBar);

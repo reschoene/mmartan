@@ -1,10 +1,10 @@
 import * as ActionTypes from './ActionTypes';
 import { getBaseUrl } from '../shared/baseUrl';
 
-export const fetchProducts = () => (dispatch) => {
+export const fetchProducts = (pageNumber, pageSize, prodDescr) => (dispatch) => {
     dispatch(productsLoading(true));
 
-    return fetch(getBaseUrl()+'getProductCatalog?pageNumber=10&pageSize=10')
+    return fetch(getBaseUrl()+`getProductCatalog?pageNumber=${pageNumber}&pageSize=${pageSize}&prodDescription=${prodDescr}`)
         .then(response => {
             if(response.ok){
                 return response;
@@ -36,4 +36,19 @@ export const productsFailed = (errMsg) => ({
 export const addProducts = (products) => ({
     type: ActionTypes.ADD_PRODUCTS,
     payload: products
+});
+
+export const setPageSize = (pageSize) => ({
+    type: ActionTypes.SET_PAGE_SIZE,
+    payload: pageSize
+});
+
+export const setPageNumber = (pageNumber) => ({
+    type: ActionTypes.SET_PAGE_NUMBER,
+    payload: pageNumber
+});
+
+export const setSearchFilter = (searchFilter) => ({
+    type: ActionTypes.SET_SEARCH_FILTER,
+    payload: searchFilter
 });

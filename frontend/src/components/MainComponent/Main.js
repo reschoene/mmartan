@@ -10,24 +10,30 @@ import Subtittle from '../SubtittleComponent/Subtittle';
 const mapStateToProps = state => {
   return {
     products: state.products,
+    pageSize: state.pageSize,
+    pageNumber: state.pageNumber,
+    searchFilter: state.searchFilter
   }   
 }
 
 const mapDispatchToProps = dispatch => ({
-    fetchProducts: () => dispatch(fetchProducts()),
+    fetchProducts: (pageNumber, pageSize, prodDescr) => dispatch(fetchProducts(pageNumber, pageSize, prodDescr)),
 })
 
 class Main extends Component{
   componentDidMount(){
-    this.props.fetchProducts();
+    this.props.fetchProducts(this.props.pageNumber, this.props.pageSize, this.props.searchFilter);
   }
 
   render(){
+    let foundProducts = `${this.props.products.length} PRODUTOS ENCONTRADOS`;
+    let currentSearch = (this.props.searchFilter? this.props.searchFilter: "Lista de produtos");
+
     return(
       <>
         <TopBar />
-        <Tittle value="Lençol avulso"/>
-        <Subtittle value="200 PRODUTOS ENCONTRADOS"/>        
+        <Tittle value={currentSearch}/>
+        <Subtittle value={foundProducts}/>
         <ProductCatalog products={this.props.products}/>
         <PaginationBar />
       </>
