@@ -4,16 +4,13 @@ import Tittle from '../TittleComponent/Tittle';
 import ProductCatalog from '../ProductCatalogComponent/ProductCatalog';
 import { connect } from 'react-redux';
 import { fetchProducts } from '../../redux/ActionCreators';
-import PaginationBar from '../PaginationBarComponent/PaginationBar';
-import Subtittle from '../SubtittleComponent/Subtittle';
 
 const mapStateToProps = state => {
   return {
     products: state.products,
     pageSize: state.pageSize,
     pageNumber: state.pageNumber,
-    searchFilter: state.searchFilter,
-    totalProducts: state.totalProducts
+    searchFilter: state.searchFilter
   }   
 }
 
@@ -26,17 +23,14 @@ class Main extends Component{
     this.props.fetchProducts(this.props.pageNumber, this.props.pageSize, this.props.searchFilter);
   }
 
-  render(){
-    let foundProducts = `${this.props.totalProducts} PRODUTOS ENCONTRADOS`;
+  render(){    
     let currentSearch = (this.props.searchFilter? this.props.searchFilter: "Lista de produtos");
 
     return(
       <>
         <TopBar />
-        <Tittle value={currentSearch}/>
-        <Subtittle value={foundProducts}/>
-        <ProductCatalog products={this.props.products}/>
-        <PaginationBar />
+        <Tittle value={currentSearch}/>        
+        <ProductCatalog />        
       </>
     );
   }
