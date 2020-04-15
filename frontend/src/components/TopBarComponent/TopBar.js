@@ -19,10 +19,12 @@ const mapDispatchToProps = dispatch => ({
     setPageNumber:   (pageNumber)                      => dispatch(setPageNumber(pageNumber)),
 });
 
+/** The bar containing mmartan's logo and a search component */
 class TopBar extends Component{
     doSearch(searchFilter){
-        this.props.setSearchFilter(searchFilter);
-        this.props.setPageNumber(1); //ao mudar o termo da busca, volta a pagina 1
+        //dispatch search term to the store
+        this.props.setSearchFilter(searchFilter);        
+        this.props.setPageNumber(1);
         this.props.fetchProducts(1, this.props.pageSize, searchFilter);
     }
 

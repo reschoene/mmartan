@@ -1,5 +1,9 @@
 import * as ActionTypes from './ActionTypes';
 
+/** Main reducer function for product catalog. It controls all the states assumed by the redux store.
+ *  Reducer is basically a pure function (it doesn't change its parameters values),
+ *  that takes the previous state and an action, and returns the next state.
+ */
 export const productsReducer = (state = {
         pageSize: 16,
         pageNumber: 1,

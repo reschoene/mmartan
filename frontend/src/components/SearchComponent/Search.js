@@ -1,7 +1,14 @@
 import React, {Component} from 'react';
 import './Search.scss';
 
+/** Search component composed by three parts:
+ * A) a search button with a magnifying glass icon
+ * B) a field for the user to enter the search term
+ * C) a clear button
+ */
 class Search extends Component{
+
+    /** @constructor Initialize default state value */
     constructor(props) {
         super(props);
         this.state = {value : ''};
@@ -23,23 +30,32 @@ class Search extends Component{
         )
     }
 
+    /** event handler triggered on changing the search term */
     valueChange = (e) =>{ 
+        //updates the state
         this.setState({value: e.target.value});
     }
 
+    /** event handler triggered on key pressing */
     inputKeyPress = (e) => {
+        //when user types Enter, trigger onSearch event
         if ((e.key === 'Enter') && (this.props.onSearch))
             this.props.onSearch(this.state.value);
     }
 
+    /** event handler triggered on clear button click */
     clearBtnClick = (e) =>{ 
+        //Clear the search term
         this.setState({value: ''});
         
+        //Trigger onSearch event for refreshing the last search results
         if (this.props.onSearch)
             this.props.onSearch('');        
     }
     
+    /** event handler triggered on search button click */
     searchBtnClick = (e) =>{
+        //trigger onSearch event
         if (this.props.onSearch)
             this.props.onSearch(this.state.value);
     }
