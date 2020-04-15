@@ -2,13 +2,21 @@ import React from 'react';
 import './ProductCatalog.scss';
 import formatCurreny from '../../shared/format';
 
+/**
+ * Renders a catalog item showing its main properties.
+ * This component is used only in the ProductCatalog. It's in a separeted file just for
+ * improving readability.
+ * @param {Object} product an object containg the product data to be displayed 
+ */
 function ProductCatalogItem({product}){
+    //Populates an array with photos of each product
     const photos = product.photos.map((photo, idx) =>
         <div key={idx} className="col-12 col-md-6 col-lg-3">
             <img src={'./images/products/' + photo.path} alt={photo.name} height='85px' width='85px'/>
         </div>
     );
 
+    //renders the product data as a row to be displayed in the catalog    
     return (
         <div className="container border">
             <div className="row mt-1 mb-1">
