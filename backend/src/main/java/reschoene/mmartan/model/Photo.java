@@ -1,5 +1,8 @@
 package reschoene.mmartan.model;
 
+/** 
+ *  Represents a photo of the product
+ */
 public class Photo extends BaseModel{
     String path;
     

@@ -3,6 +3,9 @@ package reschoene.mmartan.model;
 import java.util.LinkedList;
 import java.util.List;
 
+/** 
+ * Represents a product available for sale.
+ * */
 public class Product extends BaseModel{
     String description;
     Line line;

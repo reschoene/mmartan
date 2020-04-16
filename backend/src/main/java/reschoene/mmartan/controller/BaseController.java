@@ -1,6 +1,8 @@
 package reschoene.mmartan.controller;
 
-//Base class for all controller classes
+/** 
+ * Base class for all controller classes 
+ **/
 public class BaseController {
   //FRONT_END_URL will be changed according to the environment this server will be running.
   //Its used to configure the cross origin control, setting the trust domains  

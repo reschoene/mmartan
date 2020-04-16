@@ -1,5 +1,8 @@
 package reschoene.mmartan.model;
 
+/** 
+ * Used by almost all model classes. It centralizes common properties as id and name
+ * */
 public class BaseModel {
     Long id;
     String name;

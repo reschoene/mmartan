@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
 import reschoene.mmartan.dao.ProductDao;
 import reschoene.mmartan.model.ProductCatalog;
 
+/** 
+ * Controller class for managing product catalog requests
+ **/
 @RestController
 public class ProductController extends BaseController{
     
