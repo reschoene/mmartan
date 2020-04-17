@@ -1,13 +1,14 @@
 # Catálogo de Produtos mmartan
 
-Simula uma página de um sistema e-commerce responsável por demonstrar de forma otimizada um catálogo de produtos.  
+Simula uma página de um sistema e-commerce responsável por demonstrar de forma otimizada um catálogo de produtos.
+<br />
 
 ### Para esta solução, utilizei-me da seguinte stack:
 
  1. Frontend: Reactjs, Redux, Bootstrap, NPM
- 2. Backend: Java, Spring, JDBC, Maven, MySQL  
+ 2. Backend: Java, Spring, JDBC, Maven, MySQL
 
-
+<br />
 ### A solução é composta de 3 projetos que se complementam:
 
 ### 1 - frontend
