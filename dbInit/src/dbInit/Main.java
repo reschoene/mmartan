@@ -12,8 +12,8 @@ import java.util.List;
 import java.util.Random;
 
 /** 
- * Database Initializer. This console application aims to helps populate mmartan's database for testing and demonstrating purposes.
- * Its helps to conducts performance tests as well, as it generate automatically a lot of data.
+ * Database Initializer. This console application aims to help to populate mmartan's database for testing and demonstration purposes.
+ * It helps to conduct performance tests as well, as it generates automatically a lot of data.
  * 
  * @author Renato Schoene
  * @version 1.0.0
