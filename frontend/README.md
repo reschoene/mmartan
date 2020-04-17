@@ -4,7 +4,7 @@ Página do catálogo de produtos mmartan. Foi desenvolvida utilizando-se das seg
 ReactJs, Redux, Bootstrap, NPM, Javascript, SCSS.
 
 ### instalação
-Entre na pasta do proejto e execute o comando `npm install`
+Entre na pasta do projeto e execute o comando `npm install`
 
 ### Execução
 Para iniciar um servidor web e carregar a página, execute o comando `npm start`
