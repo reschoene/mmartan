@@ -13,12 +13,12 @@ echo fim da compactacao dos arquivos de recursos
 
 echo Subindo mmartanFrontend.tar.bz2...
 echo 
-sshpass -vp zz4115 scp /media/renato/Dados/Desenv/mmartan/frontend/build/mmartanFrontend.tar.bz2 root@vps6174.publiccloud.com.br:/home/renato/mmartanFrontend.tar.bz2
+sshpass -vp $LOCAWEB_PASSWORD scp /media/renato/Dados/Desenv/mmartan/frontend/build/mmartanFrontend.tar.bz2 root@vps6174.publiccloud.com.br:/home/renato/mmartanFrontend.tar.bz2
 echo 
 echo Fim upload mmartanFrontend.tar.bz2
 
 echo Conectando ao servidor da Locaweb...
-sshpass -p zz4115 ssh -o StrictHostKeyChecking=no root@vps6174.publiccloud.com.br << EOF_OF_COMMAND
+sshpass -p $LOCAWEB_PASSWORD ssh -o StrictHostKeyChecking=no root@vps6174.publiccloud.com.br << EOF_OF_COMMAND
   echo Parando serviço nginx
   service nginx stop
 

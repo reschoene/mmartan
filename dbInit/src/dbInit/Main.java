@@ -22,7 +22,7 @@ public class Main {
     //Database connection properties
     public static final String DB_URL = "jdbc:mysql://127.0.0.1:3306/mmartan";
     public static final String DB_USER = "root";
-    public static final String DB_PASSWORD = "zz4115";
+    public static final String DB_PASSWORD = "root";
     
     //all possible product names for generation goes here
     public static final String[] prodNames = {"Lençol", "Colcha", "Cobertor", "Edredon", "Fronha",
