@@ -12,8 +12,6 @@ caso precise compilar e gerar novamente o executável JAR, execute o comando `mv
 ### Execução
 Para iniciar o servidor de aplicação, estando na pasta target, basta rodar o comando `.\mmartanServer.jar`. 
 
-<br />
-
 ### Deploy
 Para o deploy utilizei-me do servidor da Locaweb. Para automatizar o processo, criei o script: `deployMmartanBackend.sh`, basta executá-lo.  Para maiores detalhes, entrar em contato com o administrador.
 
