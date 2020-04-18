@@ -21,9 +21,3 @@ sshpass -vp $LOCAWEB_PASSWORD ssh -o StrictHostKeyChecking=no root@vps6174.publi
 EOF_OF_COMMAND
 
 echo ======== DEPLOY MMARTAN SERVER : FIM ========
-
-
-echo Conectando ao servidor da Locaweb...
-sshpass -vp $LOCAWEB_PASSWORD ssh -o StrictHostKeyChecking=no root@vps6174.publiccloud.com.br << EOF_OF_COMMAND
-  echo teste
-EOF_OF_COMMAND
